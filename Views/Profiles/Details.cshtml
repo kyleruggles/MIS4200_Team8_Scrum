@@ -1,0 +1,82 @@
+﻿@model MIS4200_Team8_Scrum.Models.Profile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Profile Details</h2>
+
+<div>
+    <h4>Profile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+First Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.profileFirstName)
+        </dd>
+
+        <dt>
+Last Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.profileLastName)
+        </dd>
+
+        <dt>
+Email Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+Password
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+Business Unit
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.businessUnit)
+        </dd>
+
+        <dt>
+Phone Number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phoneNumber)
+        </dd>
+
+        <dt>
+Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+Hire Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hireDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.profileId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -29,5 +29,7 @@ namespace MIS4200_Team8_Scrum.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MIS4200_Team8_Scrum.Models.Profile> Profiles { get; set; }
     }
 }
