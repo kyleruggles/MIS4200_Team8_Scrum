@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MIS4200_Team8_Scrum.Models.Profile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.profileFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.profileLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.businessUnit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hireDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.profileFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.profileLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.businessUnit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hireDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProfileId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProfileId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProfileId })
+        </td>
+    </tr>
+}
+
+</table>

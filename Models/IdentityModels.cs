@@ -34,6 +34,6 @@ namespace MIS4200_Team8_Scrum.Models
 
         public System.Data.Entity.DbSet<MIS4200_Team8_Scrum.Models.LandingPage> LandingPages { get; set; }
 
-        public System.Data.Entity.DbSet<MIS4200_Team8_Scrum.Models.coreValues> coreValues { get; set; }
+        public System.Data.Entity.DbSet<MIS4200_Team8_Scrum.Models.coreValue> coreValues { get; set; }
     }
 }

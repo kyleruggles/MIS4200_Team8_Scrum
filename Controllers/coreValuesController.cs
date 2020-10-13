@@ -27,12 +27,12 @@ namespace MIS4200_Team8_Scrum.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            coreValues coreValues = db.coreValues.Find(id);
-            if (coreValues == null)
+            coreValue coreValue = db.coreValues.Find(id);
+            if (coreValue == null)
             {
                 return HttpNotFound();
             }
-            return View(coreValues);
+            return View(coreValue);
         }
 
         // GET: coreValues/Create
@@ -46,16 +46,16 @@ namespace MIS4200_Team8_Scrum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "coreValuesId,coreValue")] coreValues coreValues)
+        public ActionResult Create([Bind(Include = "coreValueId,coreValue")] coreValue coreValue)
         {
             if (ModelState.IsValid)
             {
-                db.coreValues.Add(coreValues);
+                db.coreValues.Add(entity: coreValue);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(coreValues);
+            return View(coreValue);
         }
 
         // GET: coreValues/Edit/5
@@ -65,7 +65,7 @@ namespace MIS4200_Team8_Scrum.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            coreValues coreValues = db.coreValues.Find(id);
+            coreValue coreValues = db.coreValues.Find(id);
             if (coreValues == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace MIS4200_Team8_Scrum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "coreValuesId,coreValue")] coreValues coreValues)
+        public ActionResult Edit([Bind(Include = "coreValuesId,coreValue")] coreValue coreValues)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace MIS4200_Team8_Scrum.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            coreValues coreValues = db.coreValues.Find(id);
+            coreValue coreValues = db.coreValues.Find(id);
             if (coreValues == null)
             {
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace MIS4200_Team8_Scrum.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            coreValues coreValues = db.coreValues.Find(id);
+            coreValue coreValues = db.coreValues.Find(id);
             db.coreValues.Remove(coreValues);
             db.SaveChanges();
             return RedirectToAction("Index");
