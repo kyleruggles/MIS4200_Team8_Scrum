@@ -180,7 +180,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\coreValuesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandingPageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -260,6 +262,16 @@
     <Content Include="Views\Profiles\Details.cshtml" />
     <Content Include="Views\Profiles\Edit.cshtml" />
     <Content Include="Views\Profiles\Index.cshtml" />
+    <Content Include="Views\LandingPage\Create.cshtml" />
+    <Content Include="Views\LandingPage\Delete.cshtml" />
+    <Content Include="Views\LandingPage\Details.cshtml" />
+    <Content Include="Views\LandingPage\Edit.cshtml" />
+    <Content Include="Views\LandingPage\Index.cshtml" />
+    <Content Include="Views\coreValues\Create.cshtml" />
+    <Content Include="Views\coreValues\Delete.cshtml" />
+    <Content Include="Views\coreValues\Details.cshtml" />
+    <Content Include="Views\coreValues\Edit.cshtml" />
+    <Content Include="Views\coreValues\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

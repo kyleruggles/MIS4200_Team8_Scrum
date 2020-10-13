@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MIS4200_Team8_Scrum.Models.LandingPage>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.landingPageID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.landingPageID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.landingPageID })
+        </td>
+    </tr>
+}
+
+</table>
