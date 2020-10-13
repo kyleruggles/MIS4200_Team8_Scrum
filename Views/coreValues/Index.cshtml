@@ -1,0 +1,103 @@
+﻿@model IEnumerable<MIS4200_Team8_Scrum.Models.coreValues>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+</p>
+<div class="jumbotron">
+    <h1>Centric Business Consulting Core Values</h1>
+    <p class="lead">Our Core Values Help us Solve Tough Problems for Clients</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+<div class="col-md-4">
+    <h2>Our core values provide a reliable foundation to help us create innovative solutions for our clients – even when faced with a tough problem.</h2>
+    <p>
+        Let’s face it. Clients don’t hire consultants to come in and solve easy problems. If the problems were easy, they would have already solved them on their own. As consultants, we are brought in to solve the tough problems, which means sometimes we are put in tough situations.
+        While we cannot always control the situation itself, we can control how we respond to it. When faced with difficult client interactions and situations, the core values that Centric Consulting was built upon provide some great perspective. Our company’s “core values” are so much more than a slogan. They are central to the success of Centric as an organization, and have real, practical implications that can be applied on a daily basis. Below is a breakdown of some of Centric’s core values, and how we apply them when things are at their toughest.
+    </p>
+    <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</div>
+<div class="col-md-4">
+    <h2>Commit to Delivery Excellence</h2>
+    <p>
+        Some consultants find it easy to deflect the failure of a project onto the client or the environment. Maybe the original scope was not realistic. Or maybe the client did not provide the level of support to a project they initially promised. But it’s always important to reflect on one’s own involvement in the project to deliver excellent results. Instead of pointing the finger at problems, we – at Centric – ask ourselves what can we do to deliver excellence. There are often many ways you can change approach to improve delivery and results.
+    </p>
+    <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</div>
+<div class="col-md-4">
+    <h2>Embrace Integrity and Openness</h2>
+    <p>
+        One of the most important ways to build a long-term relationship with a client is to first build trust. The best way to build trust with clients is to embrace integrity and openness in all communications, even when the news is bad. Truth in reporting the progress and status of a project, no matter how intimidating it may seem, is the best way to prevent small problems from becoming large ones. Delaying bad news in the hopes that things might “get better” can be a slippery slope to losing trust with the client. Once a client starts questioning the integrity of your reporting, trust has been lost. Once trust is lost, losing clients is often close behind.
+    </p>
+    <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</div>
+<div class="col-md-4">
+    <h2>Practice Responsible Stewardship</h2>
+    <p>
+        This core value applies not only to Centric’s resources, but to our client’s resources as well. It is important to look out for our clients and act in their best interest. Perhaps a simpler solution could provide them similar results to a larger, more complex solution. It’s not about billable hours, it’s about doing the right thing. In the long run, our clients will see and appreciate that we value their assets as much as our own.
+    </p>
+    <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</div>
+<div class="col-md-4">
+    <h2>
+        <div class="col-md-4">
+            <h2>Practice Responsible Stewardship</h2>
+            <p>
+                This core value applies not only to Centric’s resources, but to our client’s resources as well. It is important to look out for our clients and act in their best interest. Perhaps a simpler solution could provide them similar results to a larger, more complex solution. It’s not about billable hours, it’s about doing the right thing. In the long run, our clients will see and appreciate that we value their assets as much as our own.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+</div>
+<div class="col-md-4">
+    <h2>
+        <div class="col-md-4">
+            <h2>Strive to Innovate</h2>
+            <p>
+                Our role as consultants is to find solutions in places where it seems like there aren’t any. Our clients look to us not just to execute to a project plan, but to provide creative solutions to complex problems. When delivery gets difficult, taking a step back and finding ways to innovate can lead to breakthroughs. We pride ourselves in constantly looking for new, breakthrough solutions to solve problems for our clients.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+</div>
+<div class="col-md-4">
+    <h2>
+        <div class="col-md-4">
+            <h2>Live a Balanced Life</h2>
+            <p>
+                Living a balanced life provides perhaps the most important element to managing client interactions: perspective. When the going gets tough, we make it a point to remember that our clients, just like ourselves, are coming to work every day to try and do a good job, go home and take care of their families. Our focus is not on winning a disagreement. Our focus is on maintaining a balanced perspective. Trying to see things from our client’s point of view is a powerful way to diffuse heated situations.
+
+                It is important to remember that our clients do not hire consultants to solve easy problems. But, in the face of difficult client interactions and situations, our core values at Centric provide us with perspective. These values, when put into action, serve as a reliable foundation.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.coreValue)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.coreValue)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.coreValuesId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.coreValuesId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.coreValuesId })
+                    </td>
+                </tr>
+            }
+
+        </table>
