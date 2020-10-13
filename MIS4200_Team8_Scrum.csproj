@@ -188,6 +188,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\coreValues.cs" />
+    <Compile Include="Models\LandingPage.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
