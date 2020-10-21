@@ -6,22 +6,23 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MIS4200_Team8_Scrum.DAL;
 using MIS4200_Team8_Scrum.Models;
 
 namespace MIS4200_Team8_Scrum.Controllers
 {
-    public class ProfileController : Controller
+    public class ProfilesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private MIS4200_Team8_Scrum_Context db = new MIS4200_Team8_Scrum_Context();
 
-        // GET: Profile
+        // GET: Profiles
         public ActionResult Index()
         {
             return View(db.Profiles.ToList());
         }
 
-        // GET: Profile/Details/5
-        public ActionResult Details(int? id)
+        // GET: Profiles/Details/5
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
@@ -35,21 +36,22 @@ namespace MIS4200_Team8_Scrum.Controllers
             return View(profile);
         }
 
-        // GET: Profile/Create
+        // GET: Profiles/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Profile/Create
+        // POST: Profiles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProfileId,profileFirstName,profileLastName,email,password,businessUnit,phoneNumber,title,hireDate")] Profile profile)
+        public ActionResult Create([Bind(Include = "ProfileId,profileFirstName,profileLastName,email,businessUnit,phoneNumber,title,hireDate")] Profile profile)
         {
             if (ModelState.IsValid)
             {
+                profile.ProfileId = Guid.NewGuid();
                 db.Profiles.Add(profile);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -58,8 +60,8 @@ namespace MIS4200_Team8_Scrum.Controllers
             return View(profile);
         }
 
-        // GET: Profile/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Profiles/Edit/5
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -73,12 +75,12 @@ namespace MIS4200_Team8_Scrum.Controllers
             return View(profile);
         }
 
-        // POST: Profile/Edit/5
+        // POST: Profiles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProfileId,profileFirstName,profileLastName,email,password,businessUnit,phoneNumber,title,hireDate")] Profile profile)
+        public ActionResult Edit([Bind(Include = "ProfileId,profileFirstName,profileLastName,email,businessUnit,phoneNumber,title,hireDate")] Profile profile)
         {
             if (ModelState.IsValid)
             {
@@ -89,8 +91,8 @@ namespace MIS4200_Team8_Scrum.Controllers
             return View(profile);
         }
 
-        // GET: Profile/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Profiles/Delete/5
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
@@ -104,10 +106,10 @@ namespace MIS4200_Team8_Scrum.Controllers
             return View(profile);
         }
 
-        // POST: Profile/Delete/5
+        // POST: Profiles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             Profile profile = db.Profiles.Find(id);
             db.Profiles.Remove(profile);

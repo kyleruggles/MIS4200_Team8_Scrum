@@ -26,5 +26,10 @@ namespace MIS4200_Team8_Scrum.Controllers
 
             return View();
         }
+        public ActionResult CoreValues()
+        {
+
+            return View();
+        }
     }
 }
