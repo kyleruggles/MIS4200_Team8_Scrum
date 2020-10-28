@@ -19,9 +19,15 @@ namespace MIS4200_Team8_Scrum.Controllers
         // GET: Profiles
         public ActionResult Index()
         {
-            //var testusers = from u in db.ProfileDetails select u;
+            //var testProfile = from u in db.Profiles select u;
             //if (!String.IsNullOrEmpty(searchString))
-            //    testusers = testusers.Where(uint => uint.lastName.Contains(searchString))
+            //{
+            //    testProfile = testProfile.Where(u =>
+            //    u.lastName.Contains(searchString)
+            //       || u.firstName.Contains(searchString));
+            //    // if here, users were found so view them
+            //    return View(testProfile.ToList());
+            //}
             return View(db.Profiles.ToList());
         }
 
