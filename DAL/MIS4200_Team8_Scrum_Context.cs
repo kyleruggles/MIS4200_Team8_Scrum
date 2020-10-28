@@ -14,7 +14,7 @@ namespace MIS4200_Team8_Scrum.DAL
         {
             
         }
-        
-        
+
+        public System.Data.Entity.DbSet<MIS4200_Team8_Scrum.Models.CoreValueRecognitions> CoreValueRecognitions { get; set; }
     }
 }

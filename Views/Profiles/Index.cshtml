@@ -6,9 +6,23 @@
 
 <h2>Profiles</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-9">
+            @using (Html.BeginForm("Index", "userDetails", FormMethod.Get))
+            {
+                <p>
+                    Search for users by first or last name:
+                    @Html.TextBox("searchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </div>
+        <div class="col-md-3">
+            @Html.ActionLink("Create New", "Create")
+        </div>
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>

@@ -15,14 +15,14 @@ namespace MIS4200_Team8_Scrum.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "About Centric Consulting.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "How to contact us and learn more about Centric.";
 
             return View();
         }
