@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 using MIS4200_Team8_Scrum.DAL;
 using MIS4200_Team8_Scrum.Models;
 
@@ -19,7 +18,8 @@ namespace MIS4200_Team8_Scrum.Controllers
         // GET: CoreValueRecognitions
         public ActionResult Index()
         {
-            return View(db.CoreValueRecognitions.ToList());
+            var coreValueRecognitions = db.CoreValueRecognitions.Include(c => c.personRecognized).Include(c => c.personRecognizor);
+            return View(coreValueRecognitions.ToList());
         }
 
         // GET: CoreValueRecognitions/Details/5
@@ -40,7 +40,8 @@ namespace MIS4200_Team8_Scrum.Controllers
         // GET: CoreValueRecognitions/Create
         public ActionResult Create()
         {
-            ViewBag.recognized = new SelectList(db.Profiles, "ProfileID", "fullName");
+            ViewBag.recognized = new SelectList(db.Profiles, "ProfileId", "fullName");
+            ViewBag.recognizor = new SelectList(db.Profiles, "ProfileId", "fullName");
             return View();
         }
 
@@ -49,19 +50,17 @@ namespace MIS4200_Team8_Scrum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,award,recognizor,recognized,recognizationDate")] CoreValueRecognitions coreValueRecognitions)
+        public ActionResult Create([Bind(Include = "ID,recognized,recognizor,award,recognizationDate,Comments")] CoreValueRecognitions coreValueRecognitions)
         {
             if (ModelState.IsValid)
             {
-                Guid localRecognition;
-                Guid.TryParse(User.Identity.GetUserId(), out localRecognition);
-                coreValueRecognitions.recognizor = localRecognition;
                 db.CoreValueRecognitions.Add(coreValueRecognitions);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
-            ViewBag.recognized = new SelectList(db.Profiles, "ProfileID", "fullName");
+
+            ViewBag.recognized = new SelectList(db.Profiles, "ProfileId", "fullName", coreValueRecognitions.recognized);
+            ViewBag.recognizor = new SelectList(db.Profiles, "ProfileId", "fullName", coreValueRecognitions.recognizor);
             return View(coreValueRecognitions);
         }
 
@@ -77,6 +76,8 @@ namespace MIS4200_Team8_Scrum.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.recognized = new SelectList(db.Profiles, "ProfileId", "fullName", coreValueRecognitions.recognized);
+            ViewBag.recognizor = new SelectList(db.Profiles, "ProfileId", "fullName", coreValueRecognitions.recognizor);
             return View(coreValueRecognitions);
         }
 
@@ -85,7 +86,7 @@ namespace MIS4200_Team8_Scrum.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,award,recognizor,recognized,recognizationDate")] CoreValueRecognitions coreValueRecognitions)
+        public ActionResult Edit([Bind(Include = "ID,recognized,recognizor,award,recognizationDate,Comments")] CoreValueRecognitions coreValueRecognitions)
         {
             if (ModelState.IsValid)
             {
@@ -93,6 +94,8 @@ namespace MIS4200_Team8_Scrum.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.recognized = new SelectList(db.Profiles, "ProfileId", "fullName", coreValueRecognitions.recognized);
+            ViewBag.recognizor = new SelectList(db.Profiles, "ProfileId", "fullName", coreValueRecognitions.recognizor);
             return View(coreValueRecognitions);
         }
 

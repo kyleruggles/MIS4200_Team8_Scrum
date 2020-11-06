@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -37,7 +38,11 @@ namespace MIS4200_Team8_Scrum.Models
             
         }
 
-        public virtual Profile Profile { get; set; }
+        [ForeignKey("recognized")]
+        public virtual Profile personRecognized { get; set; }
+
+        [ForeignKey("recognizor")]
+        public virtual Profile personRecognizor { get; set; }
 
     }
 }

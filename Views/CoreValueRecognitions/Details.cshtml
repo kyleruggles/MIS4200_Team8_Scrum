@@ -4,12 +4,28 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Full Deatail of Employee Recognition</h2>
 
 <div>
-    <h4>CoreValueRecognitions</h4>
+    <h4>Employee</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.personRecognized.fullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personRecognized.fullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personRecognizor.fullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personRecognizor.fullName)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.award)
         </dt>
@@ -19,27 +35,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.recognizor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.recognizor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.recognized)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.recognized)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.recognizationDate)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.recognizationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
         </dd>
 
     </dl>

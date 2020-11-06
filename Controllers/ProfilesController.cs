@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 using MIS4200_Team8_Scrum.DAL;
 using MIS4200_Team8_Scrum.Models;
 
@@ -15,19 +14,19 @@ namespace MIS4200_Team8_Scrum.Controllers
     public class ProfilesController : Controller
     {
         private MIS4200_Team8_Scrum_Context db = new MIS4200_Team8_Scrum_Context();
-
+        
         // GET: Profiles
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            //var testProfile = from u in db.Profiles select u;
-            //if (!String.IsNullOrEmpty(searchString))
-            //{
-            //    testProfile = testProfile.Where(u =>
-            //    u.lastName.Contains(searchString)
-            //       || u.firstName.Contains(searchString));
-            //    // if here, users were found so view them
-            //    return View(testProfile.ToList());
-            //}
+            var testProfile = from u in db.Profiles select u;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                testProfile = testProfile.Where(u =>
+                u.profileLastName.Contains(searchString)
+                   || u.profileFirstName.Contains(searchString));
+                // if here, users were found so view them
+                return View(testProfile.ToList());
+            }
             return View(db.Profiles.ToList());
         }
 
@@ -49,7 +48,6 @@ namespace MIS4200_Team8_Scrum.Controllers
         // GET: Profiles/Create
         public ActionResult Create()
         {
-            
             return View();
         }
 
@@ -62,9 +60,7 @@ namespace MIS4200_Team8_Scrum.Controllers
         {
             if (ModelState.IsValid)
             {
-                Guid localProfile;
-                Guid.TryParse(User.Identity.GetUserId(), out localProfile);
-                profile.ProfileId = localProfile;
+                profile.ProfileId = Guid.NewGuid();
                 db.Profiles.Add(profile);
                 db.SaveChanges();
                 return RedirectToAction("Index");

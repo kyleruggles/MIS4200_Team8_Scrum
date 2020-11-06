@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -46,5 +47,12 @@ namespace MIS4200_Team8_Scrum.Models
 
         [Display(Name = "Employee Name")]
         public string fullName { get { return profileFirstName + ", " + profileLastName; } }
+
+
+        [ForeignKey("recognizor")]
+        public ICollection<CoreValueRecognitions> GivingtheRecognition { get; set; }
+
+        [ForeignKey("recognized")]
+        public ICollection<CoreValueRecognitions> BeingRecognized { get; set; }
     }
 }

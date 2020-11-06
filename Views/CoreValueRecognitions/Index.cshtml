@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<MIS4200_Team8_Scrum.Models.CoreValueRecognitions>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Centric Recognition Bank";
 }
 
-<h2>Index</h2>
+<h2>Recognize someone today!</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,16 +12,19 @@
 <table class="table">
     <tr>
         <th>
+            Employee Being Recognized
+        </th>
+        <th>
+            Employee Giving the Recognition
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.award)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.recognizor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.recognized)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.recognizationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
         </th>
         <th></th>
     </tr>
@@ -29,16 +32,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.personRecognized.fullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personRecognizor.fullName)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.award)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.recognizor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recognized)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.recognizationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
